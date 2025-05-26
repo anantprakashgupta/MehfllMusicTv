@@ -1,0 +1,580 @@
+
+/* Base Styles */
+:root {
+  --primary-color: #4A6CF7;
+  --secondary-color: #0F1B4C;
+  --accent-color: #FF5722;
+  --text-color: #333;
+  --light-text: #666;
+  --bg-color: #fff;
+  --light-bg: #F8FAFF;
+  --border-color: #e5e7eb;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
+}
+
+.btn-primary:hover {
+  background: #3954d4;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(74, 108, 247, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  margin-left: 15px;
+}
+
+.btn-secondary:hover {
+  background: rgba(74, 108, 247, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.logo {
+  display: flex;
+  align-items: center;  /* Align items in a single row */
+  gap: 10px;  /* Space between logo and text */
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center; /* Aligns image and text in a row */
+  gap: 10px; /* Space between logo and text */
+}
+
+.footer-logo img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+  padding: 150px 0 100px;
+  background: linear-gradient(135deg, var(--light-bg) 0%, white 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(74, 108, 247, 0.05);
+  top: -100px;
+  left: -100px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 87, 34, 0.05);
+  bottom: -50px;
+  right: -50px;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  flex: 1;
+  padding-right: 30px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.phone-mockup {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Features Section */
+.features {
+  padding: 100px 0;
+  background: white;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  /* border-radius: 50%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-bg);
+}
+
+.radio-icon {
+  background: url('https://rukminim2.flixcart.com/image/850/1000/xif0q/fm-radio/l/x/2/all-new-creta-fm-am-sw-rechargeable-radio-with-bluetooth-usb-tf-original-imagywkrzfu4xz97.jpeg?q=20&crop=false') no-repeat center center / 100px;
+}
+
+.tv-icon {
+  background: url('https://telecomtalk.info/wp-content/uploads/2018/12/dish-tv-airtel-digital-channel-prices-1200x675.png') no-repeat center center / 100px;
+}
+
+.favorites-icon {
+  background: url('https://c.saavncdn.com/651/Raja-Ji-Bhojpuri-2023-20240701224828-500x500.jpg') no-repeat center center / 100px;
+}
+
+.offline-icon {
+  background: url('https://i.ytimg.com/vi/uwBXD6xAcJw/maxresdefault.jpg') no-repeat center center / 100px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.feature-card p {
+  color: var(--light-text);
+}
+
+/* Screenshots Section */
+.screenshots {
+  padding: 100px 0;
+  background: var(--light-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.screenshot-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.screenshot-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.screenshot {
+  flex: 0 0 280px;
+  margin: 0 15px;
+  scroll-snap-align: center;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+}
+
+.screenshot img {
+  height: 600px;
+  object-fit: cover;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.prev-btn, .next-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Download Section */
+.download {
+  padding: 100px 0;
+  background: linear-gradient(180deg, white, var(--light-bg));
+  text-align: center;
+}
+
+.download-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  border-radius: 15px;
+  background: var(--secondary-color);
+  color: white;
+  min-width: 220px;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(15, 27, 76, 0.3);
+}
+
+.download-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(15, 27, 76, 0.4);
+}
+
+.download-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.google-play .download-icon {
+  background: url('https://cdn-icons-png.flaticon.com/512/732/732208.png') no-repeat center center / contain;
+}
+
+.direct-download .download-icon {
+  background: url('https://www.freeiconspng.com/uploads/download-icon-png-20.png') no-repeat center center / contain;
+}
+
+.download-text {
+  text-align: left;
+}
+
+.download-text span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.download-text strong {
+  font-size: 1.2rem;
+  display: block;
+}
+
+/* Footer */
+footer {
+  background: var(--secondary-color);
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-logo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-logo p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.footer-links h4, .footer-contact h4 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+.footer-contact p {
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.facebook {
+  background: rgba(255, 255, 255, 0.1) url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/240px-2023_Facebook_icon.svg.png') no-repeat center center / 30px;
+}
+
+.twitter {
+  background: rgba(255, 255, 255, 0.1) url('https://www.freeiconspng.com/thumbs/logo-twitter-png/logo-twitter-icon-symbol-0.png') no-repeat center center / 40px;
+}
+
+.instagram {
+  background: rgba(255, 255, 255, 0.1) url('https://static.vecteezy.com/system/resources/previews/042/148/632/non_2x/instagram-logo-instagram-social-media-icon-free-png.png') no-repeat center center / 40px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 50px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .feature-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .screenshot {
+    flex: 0 0 220px;
+  }
+
+  .screenshot img {
+    height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn-secondary {
+    margin-left: 0;
+  }
+
+  .download-options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
